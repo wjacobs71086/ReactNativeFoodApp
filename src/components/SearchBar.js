@@ -2,13 +2,21 @@ import React from 'react'
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import { EvilIcons } from '@expo/vector-icons/';
 
-const SearchBar = () => {
+const SearchBar = ({term, onTermChange, onTermSubmit}) => {
   return (
     <View style={styles.viewStyle}>
-      <EvilIcons name='search' size={30}/>
+      <EvilIcons 
+        name='search' 
+        style={styles.iconStyle}
+        />
       <TextInput 
         style={styles.searchBar}
         placeholder='Search'
+        value={term}
+        autoCapitalize='none'
+        autoCorrect={false}
+        onChangeText={onTermChange}
+        onEndEditing={onTermSubmit}
       />
     </View>
   )
@@ -16,8 +24,13 @@ const SearchBar = () => {
 
 const styles = StyleSheet.create({
   searchBar: {
-    fontSize: 30,
+    fontSize: 18,
+    width: 345,
   },
+  iconStyle:{
+    fontSize: 40,
+    alignSelf: 'center',
+  },  
   viewStyle:{
     height: 50,
     borderRadius: 5,
@@ -28,7 +41,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 10,
     padding: 2,
-    overflow: 'scroll',
   }, 
 })
 
