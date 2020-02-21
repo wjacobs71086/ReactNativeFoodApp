@@ -13,15 +13,13 @@ const SearchScreen = () => {
     return results.filter(business => business.price === price);
   };
 
-  return (
-    <View>
-      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
-      {loading ? <Text>Loading...</Text> : null}
-      {error ? <Text>{error}</Text> : null}
-      {results.length > 0 ? (
-        <Text>We have found {results.length} results</Text>
-      ) : null}
-      <ResultsList
+  const renderLoading =() =>{
+    if(loading){
+      return <Text>Loading...</Text>
+    } else {
+      return (
+        <View>
+        <ResultsList
         list={filterResultsByPrice("$")}
         header="Cost Effective"
       />
@@ -34,10 +32,25 @@ const SearchScreen = () => {
       <ResultsList 
         list={filterResultsByPrice("$$$$")}
         header="VERY Expensive" />
+      </View>
+      )
+    }
+  }
+
+
+  return (
+    <View>
+      <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
+      {error ? <Text>{error}</Text> : null}
+      {renderLoading()}
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  list:{
+    marginTop: 20,
+  }
+});
 
 export default SearchScreen;
