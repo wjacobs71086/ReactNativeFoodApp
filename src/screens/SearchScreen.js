@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import useResults from "../hooks/useResults";
 import ResultsList from "../components/ResultsList";
@@ -15,7 +15,7 @@ const SearchScreen = () => {
 
   const renderLoading =() =>{
     if(loading){
-      return <Text>Loading...</Text>
+      return <Text style={styles.loading}>Loading...</Text>
     } else {
       return (
         <View>
@@ -39,18 +39,25 @@ const SearchScreen = () => {
 
 
   return (
-    <View>
+    <ScrollView>
+    <>
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
       {error ? <Text>{error}</Text> : null}
       {renderLoading()}
-    </View>
+    </>
+</ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   list:{
     marginTop: 20,
-  }
+  },
+  loading:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
 });
 
 export default SearchScreen;
