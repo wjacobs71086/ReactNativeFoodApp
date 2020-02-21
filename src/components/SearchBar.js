@@ -16,7 +16,7 @@ const SearchBar = ({term, onTermChange, onTermSubmit}) => {
         autoCapitalize='none'
         autoCorrect={false}
         onChangeText={onTermChange}
-        onEndEditing={onTermSubmit}
+        onEndEditing={(term) => onTermSubmit(term)}
       />
     </View>
   )
