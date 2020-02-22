@@ -5,10 +5,12 @@ import {withNavigation} from 'react-navigation';
 
 
 const ResultsList = ({header, list, navigation}) => {
+  if(!list.length){
+    return null
+  }
   return (
     <View>
       <Text style={styles.title}>{header}</Text>
-    
     <FlatList
       horizontal
       data={list}
