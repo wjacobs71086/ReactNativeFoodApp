@@ -35,10 +35,10 @@ if(!result){
           return <Image style={styles.image} source={{ uri: item}}/>
         }}
         />
-      <Text>Address:</Text>
-      <Text>{result.location.display_address[0]}</Text>
-      <Text>{result.location.display_address[1]}</Text>
-      <Text>{result.location.display_address[2]}</Text>
+      <Text style={styles.info}>Address:</Text>
+      <Text style={styles.info}>{result.location.display_address[0]}</Text>
+      <Text style={styles.info}>{result.location.display_address[1]}</Text>
+      <Text style={styles.info}>{result.location.display_address[2]}</Text>
     </View>
   )
 };
@@ -55,6 +55,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 15,
     marginTop: 5,
+  },
+  info: {
+    marginLeft: 15,
+    fontSize: 16,
   },
 });
 
