@@ -1,5 +1,5 @@
 import React, {useState,  useEffect} from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, FlatList } from 'react-native';
 import Yelp from '../api/Yelp';
 
 
@@ -16,16 +16,30 @@ useEffect(() => {
   getResult(id);
 }, []);
 
+if(!result){
+  return null;
+}
+
   return (
     <View>
       <Text>{(result) ? result.name : null}</Text>
-      <Image source={(result) ? {uri: result.photos[0]} : null}/>
+      <FlatList 
+        data={result.photos}
+        keyExtractor={(photo) => photo}
+        renderItem={({item}) => {
+          return <Image style={styles.image} source={{ uri: item}}/>
+        }}
+        />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  
+  image: {
+    width: 200,
+    height: 150,
+    margin: 5,
+  },
 });
 
 export default ResultsShowScreen;
