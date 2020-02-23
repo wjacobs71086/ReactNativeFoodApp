@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
   viewStyle:{
     height: 50,
     borderRadius: 5,
-    backgroundColor: '#F0EEEE',
+    backgroundColor: '#EAFDE6',
     borderWidth: 2,
-    borderColor: 'grey',
+    borderColor: '#2D2D29',
     flexDirection: 'row',
     alignItems: 'center',
     margin: 10,

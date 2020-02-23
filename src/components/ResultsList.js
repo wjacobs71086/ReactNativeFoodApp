@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 15,
     marginBottom: 5,
+    color: '#2D2D29',
   },  
 })
 export default withNavigation(ResultsList);

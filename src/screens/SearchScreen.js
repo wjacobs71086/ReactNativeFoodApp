@@ -39,7 +39,7 @@ const SearchScreen = () => {
 
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.background}>
     <>
       <SearchBar term={term} onTermChange={setTerm} onTermSubmit={searchApi} />
       {error ? <Text>{error}</Text> : null}
@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     alignSelf: 'center',
+  },
+  background: {
+    backgroundColor: '#EAFDE6',
   },
 });
 

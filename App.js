@@ -6,7 +6,7 @@ import ResultsShowScreen from './src/screens/ResultsShowScreen';
 
 const navigator = createStackNavigator({
   Search: SearchScreen,
-  Result: ResultsShowScreen
+  Result: ResultsShowScreen,
 }, {
   initialRouteName: 'Search',
   defaultNavigationOptions: {
@@ -16,8 +16,3 @@ const navigator = createStackNavigator({
 
 
 export default createAppContainer(navigator);
-// Client ID
-// aWszA-Z1dfQ6e55iIopcBw
-
-// API Key
-// kbAKytAKcOslKFBrdl5jz47FuSz-0qY26ANNXb2B-BS6mNhw9cwup2I5zx53Xy0twMiFVpeTKUPPOLIXaoUclyIsE4r8UfObJ7QZvLVu6TEGX1lxdLhFcCgT9YBAXnYx
